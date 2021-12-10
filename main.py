@@ -15,7 +15,7 @@ api_hash = '7970f21bf68122b9ad71f698092a7650'
 
 # fill in your own details here
 phone = '6282141421214'
-session_file = 'basnugroho'  # use your username if unsure
+session_file = 'ff-roc'  # use your username if unsure
 # password = 'Havingfun123'  # if you have two-step verification enabled
 with TelegramClient(session_file, api_id, api_hash) as client:
     result = client(functions.account.ResetAuthorizationRequest(hash=-12398745604826))
@@ -74,9 +74,11 @@ if __name__ == '__main__':
                         pesan = pesan = re.sub("fu\s+\w+\s+\w+", "", message)
                         # print(f"{message}. Moban rekan di WITEL {witel.upper()} {username}. Terima Kasih 🙏\n")
                         moban = f"{message}. Moban rekan di WITEL {witel.upper()} {username}. Terima Kasih 🙏\n"
-                        await client.send_message("https://t.me/+DC4xiLUfyBgknY8z", moban)
-            #await event.respond(f"jika terdapat kesalahan data mohon japri 🙏")
-            await client.send_message("https://t.me/+DC4xiLUfyBgknY8z", f"jika terdapat kesalahan atau ada update data mohon japri 🙏")
+	    destination_group_invite_link="https://t.me/+DC4xiLUfyBgknY8z"                        
+            entity=client.get_entity(destination_group_invite_link)	    
+            await client.send_message(entity, moban)
+            await event.respond(f"jika terdapat kesalahan data mohon japri 🙏")
+            #await client.send_message("https://t.me/+DC4xiLUfyBgknY8z", f"jika terdapat kesalahan atau ada update data mohon japri 🙏")
             await event.respond("done 💯")
 
     @client.on(events.NewMessage(pattern='(?i)daman|uim'))
