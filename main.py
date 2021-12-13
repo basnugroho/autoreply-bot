@@ -83,6 +83,7 @@ if __name__ == '__main__':
             from_ = await event.client.get_entity(event.from_id)
             if not from_.bot and len(message_splitted) > 0:
                 await event.respond(f"**[AUTO REPLY]** Memproses ke ROC HD FF.")
+            usernames = []
             for message in message_splitted:
                 for witel in witels:
                     if witel in message.lower():
@@ -90,6 +91,7 @@ if __name__ == '__main__':
                         # for sending instead of printing
                         # pesan = pesan = re.sub("fu\s+\w+\s+\w+", "", message)
                         moban = f"{message}. Moban rekan di WITEL {witel.upper()} {username}. Terima Kasih 🙏\n"
+                        usernames.append(username)
             # destination_group_invite_link="https://t.me/+DC4xiLUfyBgknY8z"                        
             # entity=client.get_input_entity(destination_group_invite_link)
             # print(entity)    
@@ -97,7 +99,8 @@ if __name__ == '__main__':
                 destination = "ROC - HD FF WOC REG5"
                 await client.send_message(destination, moban)
                 await event.respond(f"proceed to {destination}: {moban}")
-                await client.send_message(destination, f"jika terdapat kesalahan data mohon japri 🙏")
+                mentioned_str = ",".join(usernames)
+                await client.send_message(destination, f"jika terdapat kesalahan data mohon japri 🙏\ncc: {mentioned_str}")
             except Exception as e:
                 print("Error:", e)
             await event.respond("done 💯")
@@ -115,7 +118,7 @@ if __name__ == '__main__':
             'madiun': 'Pak @ryandwiardianto', 
             'madura': 'Mbak @fijrahasri',
             'malang': 'Pak @ChandraPoetra',
-            'ntb': 'Bu @nikensalma', 
+            'ntb': 'Mas @masfiuuu', 
             'ntt': 'Bu @jaywny', 
             'pasuruan': 'Pak @damanmoni', 
             'surabaya selatan': 'Bu @yayukfitriana', 
@@ -124,6 +127,7 @@ if __name__ == '__main__':
             'singaraja': 'Pak @dex_suardhana'
             }
 
+            mentioneds = []
             from_ = await event.client.get_entity(event.from_id)
             if not from_.bot and len(message_splitted) > 0:
                 await event.respond(f"**[AUTO REPLY]** Memproses ke TR5 - FALLOUT UIM.")
@@ -134,8 +138,10 @@ if __name__ == '__main__':
                         #await event.respond(f"Semangat Pagi! Moban {witels[witel]} di {witel.upper()} \n{message} Terima Kasih 🙏\n")
                         destination = "TR5 - FALLOUT UIM"
                         await client.send_message(destination, f"Semangat Pagi! Moban {witels[witel]} di {witel.upper()} \n{message} Terima Kasih 🙏\n")
+                        mentioneds.append({witels[witel]})
                         await event.respond(f"proceed to {destination}: Semangat Pagi! Moban {witels[witel]} di {witel.upper()} \n{message} Terima Kasih 🙏\n")
-            await client.send_message(destination, f"jika terdapat kesalahan data mohon japri 🙏")
+            mentioned_str = ",".join(mentioneds)
+            await client.send_message(destination, f"jika terdapat kesalahan data mohon japri 🙏\ncc: {mentioned_str}")
             await event.respond("done 💯")
 
     @client.on(events.NewMessage(pattern='(?i)cancel|CANCEL'))
