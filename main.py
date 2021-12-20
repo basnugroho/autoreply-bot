@@ -1,13 +1,11 @@
 import time
 import re
-from telethon import TelegramClient, events, sync
+from telethon import TelegramClient, events
 from telethon.tl.functions.messages import SendMessageRequest
 from telethon import utils
 import pandas as pd
 from telethon.sync import TelegramClient
 from telethon import functions, types
-from datetime import datetime
-from flask import jsonify
 
 
 # sample API_ID from https://github.com/telegramdesktop/tdesktop/blob/f98fdeab3fb2ba6f55daf8481595f879729d1b84/Telegram/SourceFiles/config.h#L220
@@ -18,7 +16,7 @@ api_hash = '7970f21bf68122b9ad71f698092a7650'
 # fill in your own details here
 phone = '6282141421214'
 session_file = 'ff-roc'  # use your username if unsure
-
+# password = 'Havingfun123'  # if you have two-step verification enabled
 with TelegramClient(session_file, api_id, api_hash) as client:
     result = client(functions.account.ResetAuthorizationRequest(hash=-12398745604826))
 print(result)
@@ -32,7 +30,7 @@ if __name__ == '__main__':
     client = TelegramClient(session_file, api_id, api_hash, sequential_updates=True)
     client.connect()
 
-    cuti = False
+    cuti = True
     cuti_from = "2021-12-7"
     cuti_until = "2021-12-8"
 
@@ -73,24 +71,9 @@ if __name__ == '__main__':
                     await event.respond(f"**[AUTO REPLY]** \nBapak/Ibu/Kakak __@{from_.username}__. Mohon maaf saya sedang **cuti** hingga **{cuti_until}** 🏖⏳ \nJika urgent silahkan call telegram ini 🙏🙂")
                     users.append(from_.username)
 
-    @client.on(events.NewMessage(pattern='(?i)idem|ggn|selamat|lambat'))
-    async def handle_messages(event):
-        try:
-            print(event)
-            print("\nsending....")
-            destination = "roc5_unofficial"
-            messages = str(event.message).split(",")
-            for mess in messages:
-                if "None" not in mess:
-                    await client.send_message(destination, str(mess))
-            print("done\n")
-        except Exception as e:
-            print("Error:", e)
-
-
 
     @client.on(events.NewMessage(pattern='(?i)fu|woc|fu woc'))
-    async def fu_roc_hd_ff(event):
+    async def handler(event):
         if event.is_private:  # only auto-reply to private chats
             chat = str(event.message.message)
             message_splitted = chat.split('\n')
@@ -106,16 +89,17 @@ if __name__ == '__main__':
                     if witel in message.lower():
                         username = rochdff_df.loc[rochdff_df['witel'] == witel]['Username'].item()
                         # for sending instead of printing
-                        # pesan = pesan = re.sub("fu\s+\w+\s+\w+", "", message)
+                        pesan = pesan = re.sub("fu\s+\w+\s+\w+", "", message)
+                        # print(f"{message}. Moban rekan di WITEL {witel.upper()} {username}. Terima Kasih 🙏\n")
                         moban = f"{message}. Moban rekan di WITEL {witel.upper()} {username}. Terima Kasih 🙏\n"
                         usernames.append(username)
                         await event.respond(moban)
-                        await client.send_message("ROC - HD FF WOC REG5", moban)
+                        # await client.send_message("ROC - HD FF WOC REG5", moban)
 	    # destination_group_invite_link="https://t.me/+DC4xiLUfyBgknY8z"                        
         #     entity=client.get_entity(destination_group_invite_link)	    
         #     await client.send_message(entity, moban)
             await event.respond(f"jika terdapat kesalahan data mohon koreksi 🙏")
-            await client.send_message("ROC - HD FF WOC REG5", f"jika terdapat kesalahan data mohon japri 🙏\ncc: {', '.join(usernames)}")
+            # await client.send_message("ROC - HD FF WOC REG5", f"jika terdapat kesalahan data mohon japri 🙏\ncc: {', '.join(usernames)}")
             #await client.send_message("https://t.me/+DC4xiLUfyBgknY8z", f"jika terdapat kesalahan atau ada update data mohon japri 🙏")
             await event.respond("done 💯")
 
@@ -150,10 +134,10 @@ if __name__ == '__main__':
                     if witel in message.lower():
                         message = re.sub("eskalasi\s+\w+\s+\w+", "", message)
                         await event.respond(f"Semangat Pagi! Moban {witels[witel]} di {witel.upper()} \n{message} Terima Kasih 🙏\n")
-                        await client.send_message("TR5 - FALLOUT UIM", f"Semangat Pagi! Moban {witels[witel]} di {witel.upper()} \n{message} Terima Kasih 🙏\n")
+                        # await client.send_message("TR5 - FALLOUT UIM", f"Semangat Pagi! Moban {witels[witel]} di {witel.upper()} \n{message} Terima Kasih 🙏\n")
                         usernames.append(witels[witel])
             await event.respond(f"jika terdapat kesalahan data mohon koreksi 🙏")
-            await client.send_message("TR5 - FALLOUT UIM", f"jika terdapat kesalahan data mohon japri 🙏\ncc: {', '.join(usernames)}")
+            # await client.send_message("TR5 - FALLOUT UIM", f"jika terdapat kesalahan data mohon japri 🙏\ncc: {', '.join(usernames)}")
 
 
     @client.on(events.NewMessage(pattern='(?i)cancel|CANCEL'))
@@ -164,16 +148,15 @@ if __name__ == '__main__':
             if not from_.bot:
                 await event.respond(f"**[AUTO REPLY]** Memproses ke CC TR5.")
             message = f"**[AUTO FORWARDER]**\n\n{message}"
-            destination = "irttyo"
-            await client.send_message(destination, message)
-            await client.send_message(f"processed to {destination}: message")
+            await client.send_message("irttyo", message)
             await event.respond("done 💯")
-    
-    # @client.on(events.NewMessage(chats = "Kawal FF-DIT"))
-    # async def my_event_handler(event):
-    #     print(event.raw_text)
 
     print(time.asctime(), '-', 'Auto-replying...')
     client.start(phone)
+    # list all sessions
+    # print(client.session.list_sessions())
+
+    # delete current session (current session is associated with `username` variable)
+    # client.log_out()
     client.run_until_disconnected()
     print(time.asctime(), '-', 'Stopped!')
