@@ -15,7 +15,7 @@ api_hash = '7970f21bf68122b9ad71f698092a7650'
 
 # fill in your own details here
 phone = '6282141421214'
-session_file = 'ff-roc'  # use your username if unsure
+session_file = 'ff-roc1'  # use your username if unsure
 # password = 'Havingfun123'  # if you have two-step verification enabled
 with TelegramClient(session_file, api_id, api_hash) as client:
     result = client(functions.account.ResetAuthorizationRequest(hash=-12398745604826))
@@ -37,10 +37,27 @@ if __name__ == '__main__':
     users = []
     known_users = ['']
     rochdff_df = pd.read_excel('./ROC HD FF.xlsx')
+    cuti = False
 
     @client.on(events.NewMessage(incoming=True))
     async def handle_new_message(event):
-        if event.is_private:  # only auto-reply to private chats
+        if event.is_private and cuti==True:  # only auto-reply to private chats
+            from_ = await event.client.get_entity(event.from_id)  # this lookup will be cached by telethon
+            if not from_.bot:  # don't auto-reply to bots
+                # print(time.asctime(), '-', event.message)  # optionally log time and message
+                time.sleep(1)  # pause for 1 second to rate-limit automatic replies
+                # result = await client(SendMessageRequest(await client.get_input_entity('username'), 'Hello there!'))
+                found = 0
+                for i, user in enumerate(users):
+                    if user == users[i] and cuti:
+                        found += 1
+                if found == 0:
+                    await event.respond(f"**[AUTO REPLY]** \nBapak/Ibu/Kakak __@{from_.username}__. Mohon maaf saya sedang **cuti** hingga **{cuti_until}** 🏖⏳ \nJika urgent silahkan call telegram ini 🙏🙂")
+                    users.append(from_.username)
+
+    @client.on(events.NewMessage(incoming=True))
+    async def handle_new_message(event):
+        if event.is_private and cuti==True:  # only auto-reply to private chats
             from_ = await event.client.get_entity(event.from_id)  # this lookup will be cached by telethon
             if not from_.bot:  # don't auto-reply to bots
                 # print(time.asctime(), '-', event.message)  # optionally log time and message
@@ -66,6 +83,7 @@ if __name__ == '__main__':
             from_ = await event.client.get_entity(event.from_id)
             if not from_.bot and len(message_splitted) > 0:
                 await event.respond(f"**[AUTO REPLY]** Memproses ke ROC HD FF.")
+            usernames = []
             for message in message_splitted:
                 for witel in witels:
                     if witel in message.lower():
@@ -74,10 +92,14 @@ if __name__ == '__main__':
                         pesan = pesan = re.sub("fu\s+\w+\s+\w+", "", message)
                         # print(f"{message}. Moban rekan di WITEL {witel.upper()} {username}. Terima Kasih 🙏\n")
                         moban = f"{message}. Moban rekan di WITEL {witel.upper()} {username}. Terima Kasih 🙏\n"
-	    destination_group_invite_link="https://t.me/+DC4xiLUfyBgknY8z"                        
-            entity=client.get_entity(destination_group_invite_link)	    
-            await client.send_message(entity, moban)
-            await event.respond(f"jika terdapat kesalahan data mohon japri 🙏")
+                        usernames.append(username)
+                        await event.respond(moban)
+                        await client.send_message("ROC - HD FF WOC REG5", moban)
+	    # destination_group_invite_link="https://t.me/+DC4xiLUfyBgknY8z"                        
+        #     entity=client.get_entity(destination_group_invite_link)	    
+        #     await client.send_message(entity, moban)
+            await event.respond(f"jika terdapat kesalahan data mohon koreksi 🙏")
+            await client.send_message("ROC - HD FF WOC REG5", f"jika terdapat kesalahan data mohon japri 🙏\ncc: {', '.join(usernames)}")
             #await client.send_message("https://t.me/+DC4xiLUfyBgknY8z", f"jika terdapat kesalahan atau ada update data mohon japri 🙏")
             await event.respond("done 💯")
 
@@ -94,7 +116,7 @@ if __name__ == '__main__':
             'madiun': 'Pak @ryandwiardianto', 
             'madura': 'Mbak @fijrahasri',
             'malang': 'Pak @ChandraPoetra',
-            'ntb': 'Bu @nikensalma', 
+            'ntb': 'Mas @masfiuuu', 
             'ntt': 'Bu @jaywny', 
             'pasuruan': 'Pak @damanmoni', 
             'surabaya selatan': 'Bu @yayukfitriana', 
@@ -103,6 +125,7 @@ if __name__ == '__main__':
             'singaraja': 'Pak @dex_suardhana'
             }
 
+            usernames = []
             from_ = await event.client.get_entity(event.from_id)
             if not from_.bot and len(message_splitted) > 0:
                 await event.respond(f"**[AUTO REPLY]** Memproses ke TR5 - FALLOUT UIM.")
@@ -111,7 +134,10 @@ if __name__ == '__main__':
                     if witel in message.lower():
                         message = re.sub("eskalasi\s+\w+\s+\w+", "", message)
                         await event.respond(f"Semangat Pagi! Moban {witels[witel]} di {witel.upper()} \n{message} Terima Kasih 🙏\n")
-            await event.respond(f"jika terdapat kesalahan data mohon japri 🙏")
+                        await client.send_message("TR5 - FALLOUT UIM", f"Semangat Pagi! Moban {witels[witel]} di {witel.upper()} \n{message} Terima Kasih 🙏\n")
+                        usernames.append(witels[witel])
+            await event.respond(f"jika terdapat kesalahan data mohon koreksi 🙏")
+            await client.send_message("TR5 - FALLOUT UIM", f"jika terdapat kesalahan data mohon japri 🙏\ncc: {', '.join(usernames)}")
 
 
     @client.on(events.NewMessage(pattern='(?i)cancel|CANCEL'))
