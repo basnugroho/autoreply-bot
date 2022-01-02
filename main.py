@@ -15,7 +15,7 @@ api_hash = '7970f21bf68122b9ad71f698092a7650'
 
 # fill in your own details here
 phone = '6282141421214'
-session_file = 'ff-roc'  # use your username if unsure
+session_file = 'ff-roc-server'  # use your username if unsure
 # password = 'Havingfun123'  # if you have two-step verification enabled
 with TelegramClient(session_file, api_id, api_hash) as client:
     result = client(functions.account.ResetAuthorizationRequest(hash=-12398745604826))
@@ -38,6 +38,21 @@ if __name__ == '__main__':
     known_users = ['']
     rochdff_df = pd.read_excel('./ROC HD FF.xlsx')
     cuti = False
+
+    # function to get unique values
+    def unique(list1):
+    
+        # initialize a null list
+        unique_list = []
+        
+        # traverse for all elements
+        for x in list1:
+            # check if exists in unique_list or not
+            if x not in unique_list:
+                unique_list.append(x)
+        # return unique list
+        print(unique_list)
+        return unique_list
 
     @client.on(events.NewMessage(incoming=True))
     async def handle_new_message(event):
@@ -83,24 +98,22 @@ if __name__ == '__main__':
             from_ = await event.client.get_entity(event.from_id)
             if not from_.bot and len(message_splitted) > 0:
                 await event.respond(f"**[AUTO REPLY]** Memproses ke ROC HD FF.")
-            usernames = []
+            usernames = [] 
+            destination = "ROC - HD FF WOC REG5"   
             for message in message_splitted:
                 for witel in witels:
                     if witel in message.lower():
                         username = rochdff_df.loc[rochdff_df['witel'] == witel]['Username'].item()
                         # for sending instead of printing
-                        pesan = pesan = re.sub("fu\s+\w+\s+\w+", "", message)
-                        # print(f"{message}. Moban rekan di WITEL {witel.upper()} {username}. Terima Kasih 🙏\n")
-                        moban = f"{message}. Moban rekan di WITEL {witel.upper()} {username}. Terima Kasih 🙏\n"
+                        pesan = re.sub("fu\s+\w+\s+\w+", "", message)
+                        moban = f"{pesan}. Moban rekan di WITEL {witel.upper()} {username}. Terima Kasih 🙏\n"
+                        # await event.respond(moban)
+                        await client.send_message(destination, moban)
+                        await event.respond(f"pesan untuk rekan di WITEL {witel.upper()} {username}. terkirim 👌")
                         usernames.append(username)
-                        await event.respond(moban)
-                        # await client.send_message("ROC - HD FF WOC REG5", moban)
-	    # destination_group_invite_link="https://t.me/+DC4xiLUfyBgknY8z"                        
-        #     entity=client.get_entity(destination_group_invite_link)	    
-        #     await client.send_message(entity, moban)
             await event.respond(f"jika terdapat kesalahan data mohon koreksi 🙏")
-            # await client.send_message("ROC - HD FF WOC REG5", f"jika terdapat kesalahan data mohon japri 🙏\ncc: {', '.join(usernames)}")
-            #await client.send_message("https://t.me/+DC4xiLUfyBgknY8z", f"jika terdapat kesalahan atau ada update data mohon japri 🙏")
+            # await client.send_message(destination, f"rekan-rekan, jika terdapat kesalahan data mohon koreksi 🙏\n\ncc: {', '.join(unique(usernames))}")
+            await client.send_message("https://t.me/+DC4xiLUfyBgknY8z", f"jika terdapat kesalahan atau ada update data mohon japri 🙏")
             await event.respond("done 💯")
 
     @client.on(events.NewMessage(pattern='(?i)daman|uim'))
@@ -126,6 +139,8 @@ if __name__ == '__main__':
             }
 
             usernames = []
+            destination = "TR5 - FALLOUT UIM"
+            sbu_fallout_group = "FALLOUT DATA SBU"
             from_ = await event.client.get_entity(event.from_id)
             if not from_.bot and len(message_splitted) > 0:
                 await event.respond(f"**[AUTO REPLY]** Memproses ke TR5 - FALLOUT UIM.")
@@ -133,11 +148,16 @@ if __name__ == '__main__':
                 for witel in witels:
                     if witel in message.lower():
                         message = re.sub("eskalasi\s+\w+\s+\w+", "", message)
-                        await event.respond(f"Semangat Pagi! Moban {witels[witel]} di {witel.upper()} \n{message} Terima Kasih 🙏\n")
-                        # await client.send_message("TR5 - FALLOUT UIM", f"Semangat Pagi! Moban {witels[witel]} di {witel.upper()} \n{message} Terima Kasih 🙏\n")
-                        usernames.append(witels[witel])
+                        if "utara" in message.lower():
+                            await event.respond(f"Ups! Fallout SBU Found! Mohon berikan format seperti berikut:\n #FALLOUT #CONS SC520196200 Tiket : IN122116759_2|Error=1057:Service_Port is missing for 53668992_152403202135_INTERNET 🙏")
+                            await event.respond(f"SBU sementara forward manual 🙃")
+                            # await client.send_message(destination, f"Semangat Pagi! Moban {witels[witel]} di {witel.upper()} \n{message} Terima Kasih 🙏\n")
+                        else:
+                            await client.send_message(destination, f"Semangat Pagi! Moban {witels[witel]} di {witel.upper()} \n{message} Terima Kasih 🙏\n")
+                            await event.respond(f"Pesan untuk {witels[witel]} di {witel.upper()} terkirim 👌")
+                            usernames.append(witels[witel])
             await event.respond(f"jika terdapat kesalahan data mohon koreksi 🙏")
-            # await client.send_message("TR5 - FALLOUT UIM", f"jika terdapat kesalahan data mohon japri 🙏\ncc: {', '.join(usernames)}")
+            await client.send_message(destination, f"rekan-rekan, jika terdapat kesalahan data mohon koreksi 🙏\n\ncc: {', '.join(unique(usernames))}")
 
 
     @client.on(events.NewMessage(pattern='(?i)cancel|CANCEL'))
