@@ -16,7 +16,7 @@ api_hash = '7970f21bf68122b9ad71f698092a7650'
 # fill in your own details here
 phone = '6282141421214'
 session_file = 'ff-roc-server'  # use your username if unsure
-# password = 'Havingfun123'  # if you have two-step verification enabled
+password = 'Havingfun123'  # if you have two-step verification enabled
 with TelegramClient(session_file, api_id, api_hash) as client:
     result = client(functions.account.ResetAuthorizationRequest(hash=-12398745604826))
 print(result)
