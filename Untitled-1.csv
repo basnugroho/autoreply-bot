@@ -1,0 +1,18 @@
+
+
+DAMAN
+
+SC519129956  UIM|IN117809841|1011:Unable to create CPE  eskalasi DAMAN  MADIUN
+SC519689011  UIM|IN121416290|1011:Unable to create CPE  eskalasi DAMAN  MALANG
+3-350310634504  UIM|IN120677363|The Inventory item (id=1211330374) has a configuration that is associated to another BI (id=2540143389). The configuration is not in a completed or canceled state. Therefore the action Modify cannot be applied to the Inventory item through the Business Int  eskalasi DAMAN  NTB
+SC517905526  UIM|IN111308175|1024:One of the Mandatory Parameters are missing: TN_Reservation_ID  eskalasi DAMAN   NTB
+SC519782325  UIM|IN121076302|240041Configuration Item CPE is already in De-Referenced state  eskalasi DAMAN   PASURUAN
+SC520438007  UIM|IN123049720|CTA Data empty  eskalasi DAMAN   SURABAYA UTARA
+SC520438007  UIM|IN123049720|CTA Data empty  eskalasi DAMAN   SURABAYA UTARA
+
+
+WOC
+
+SC516186583  ValidateWFM  fu WOC  DENPASAR
+SC514770794  ValidateWFM  fu WOC  SIDOARJO
+SC514772345  ACTIVATION|IN107366776|U31_ONU_DONT_EXIST:ONU does not exist.. Rollback failed.  fu WOC  SINGARAJA

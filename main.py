@@ -15,8 +15,8 @@ api_hash = '7970f21bf68122b9ad71f698092a7650'
 
 # fill in your own details here
 phone = '6282141421214'
-session_file = 'ff-roc-server'  # use your username if unsure
-password = 'Havingfun123'  # if you have two-step verification enabled
+session_file = 'ff-roc-local'  # use your username if unsure
+
 with TelegramClient(session_file, api_id, api_hash) as client:
     result = client(functions.account.ResetAuthorizationRequest(hash=-12398745604826))
 print(result)
@@ -86,10 +86,11 @@ if __name__ == '__main__':
                     await event.respond(f"**[AUTO REPLY]** \nBapak/Ibu/Kakak __@{from_.username}__. Mohon maaf saya sedang **cuti** hingga **{cuti_until}** 🏖⏳ \nJika urgent silahkan call telegram ini 🙏🙂")
                     users.append(from_.username)
 
-
+    # fu woc
     @client.on(events.NewMessage(pattern='(?i)fu|woc|fu woc'))
     async def handler(event):
         if event.is_private:  # only auto-reply to private chats
+            # print("event: "+event.message)
             chat = str(event.message.message)
             message_splitted = chat.split('\n')
             message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
@@ -113,8 +114,64 @@ if __name__ == '__main__':
                         usernames.append(username)
             await event.respond(f"jika terdapat kesalahan data mohon koreksi 🙏")
             # await client.send_message(destination, f"rekan-rekan, jika terdapat kesalahan data mohon koreksi 🙏\n\ncc: {', '.join(unique(usernames))}")
-            await client.send_message("https://t.me/+DC4xiLUfyBgknY8z", f"jika terdapat kesalahan atau ada update data mohon japri 🙏")
+            await client.send_message(destination, f"jika terdapat kesalahan atau ada update data mohon japri 🙏")
             await event.respond("done 💯")
+    
+    # gladius
+    @client.on(events.NewMessage(pattern='(?i)Your OTP Code User 930436 is'))
+    async def handler(event):
+        if event.is_private:  # only auto-reply to private chats
+            print("gladius OTP request")
+            peer_id = str(event.message.peer_id)
+            print(f"peer_id: {peer_id}")
+            peer_id = int(re.findall('[0-9]+', peer_id)[0])
+            print(peer_id)
+            # peers = {'basnugroho': 1298139737, 'marinekara': 1448100713}
+            # requester = ""
+            # for key, value in peers.items():
+            #     if peer_id == value:
+            #         requester = key
+            #         print("requester: "+requester)
+            #         break
+            # if requester == "":
+            #     print(f"requester unknown, peer_id {peer_id}")
+            requester = "Kakikukaku"
+            moban = str(event.message.message)
+            message_splitted = moban.split('\n')
+            message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
+
+            await client.send_message(requester, f"[AUTO FORWARDER to {requester}] {event.message.peer_id}")
+            await client.send_message(requester, moban)
+            await event.respond(f"forwarded to {requester} 💯")
+
+    # kpro
+    @client.on(events.NewMessage(pattern='(?i)Your OTP Code is'))
+    async def handler(event):
+        if event.is_private:  # only auto-reply to private chats
+            print("kpro OTP request")
+            print(event)
+            #print(str(event.message))
+            peer_id = str(event.message.peer_id)
+            print(f"peer_id: {peer_id}")
+            peer_id = int(re.findall('[0-9]+', peer_id)[0])
+            print(peer_id)
+            # peers = {'Internal Fallout NOSS-F Solution': 1298139737, 'RangerFF': 1448100713}
+            # requester = ""
+            # for key, value in peers.items():
+            #     if peer_id == value:
+            #         requester = key
+            #         print("requester: "+requester)
+            #         break
+            # if requester == "":
+            #     print(f"requester unknown, peer_id {peer_id}")
+            requester = 'Internal Fallout NOSS-F Solution'
+            moban = str(event.message.message)
+            message_splitted = moban.split('\n')
+            message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
+
+            await client.send_message(requester, f"[AUTO FORWARDER to {requester}]")
+            await client.send_message(requester, moban)
+            await event.respond(f"forwarded to {requester} 💯")
 
     @client.on(events.NewMessage(pattern='(?i)daman|uim'))
     async def forward_daman(event):
@@ -143,22 +200,30 @@ if __name__ == '__main__':
             sbu_fallout_group = "FALLOUT DATA SBU"
             from_ = await event.client.get_entity(event.from_id)
             if not from_.bot and len(message_splitted) > 0:
-                await event.respond(f"**[AUTO REPLY]** Memproses ke TR5 - FALLOUT UIM.")
-            for message in message_splitted:
-                for witel in witels:
-                    if witel in message.lower():
-                        message = re.sub("eskalasi\s+\w+\s+\w+", "", message)
-                        if "utara" in message.lower():
-                            await event.respond(f"Ups! Fallout SBU Found! Mohon berikan format seperti berikut:\n #FALLOUT #CONS SC520196200 Tiket : IN122116759_2|Error=1057:Service_Port is missing for 53668992_152403202135_INTERNET 🙏")
-                            await event.respond(f"SBU sementara forward manual 🙃")
-                            # await client.send_message(destination, f"Semangat Pagi! Moban {witels[witel]} di {witel.upper()} \n{message} Terima Kasih 🙏\n")
-                        else:
-                            await client.send_message(destination, f"Semangat Pagi! Moban {witels[witel]} di {witel.upper()} \n{message} Terima Kasih 🙏\n")
-                            await event.respond(f"Pesan untuk {witels[witel]} di {witel.upper()} terkirim 👌")
-                            usernames.append(witels[witel])
+                for message in message_splitted:
+                    for witel in witels:
+                        if witel in message.lower():
+                            message = re.sub("eskalasi\s+\w+\s+\w+", "", message)
+                            if "utara" in message.lower():
+                                if "#cons" in message.lower():
+                                    await event.respond(f"**[AUTO REPLY]** Memproses ke {sbu_fallout_group}")
+                                    await event.respond(f"mantap yang SBU udah sesuai format!")
+                                    await client.send_message("FALLOUT DATA SBU", message)
+                                    await event.respond(f"Pesan untuk {witels[witel]} di {witel.upper()} terkirim 👌")
+                                else:
+                                    await event.respond(f"""Ups! Fallout SBU Found dan tidak sesuai format! Mohon berikan format seperti contoh berikut:\n\n#FALLOUT #CONS SC520196200 Tiket : IN122116759_2|Error=1057:Service_Port is missing for 53668992_152403202135_INTERNET 🙏""")
+                            elif "#cons" in message.lower():
+                                await event.respond(f"**[AUTO REPLY]** Memproses ke {sbu_fallout_group}")
+                                await event.respond(f"mantap yang SBU udah sesuai format!")
+                                await client.send_message("FALLOUT DATA SBU", message)
+                                await event.respond(f"Pesan untuk {witels[witel]} di {witel.upper()} terkirim 👌")
+                            else:
+                                await event.respond(f"**[AUTO REPLY]** Memproses ke {destination}")
+                                await client.send_message(destination, f"Semangat Pagi! Moban {witels[witel]} di {witel.upper()} \n{message} Terima Kasih 🙏\n")
+                                await event.respond(f"Pesan untuk {witels[witel]} di {witel.upper()} terkirim 👌")
+                                usernames.append(witels[witel])
             await event.respond(f"jika terdapat kesalahan data mohon koreksi 🙏")
-            await client.send_message(destination, f"rekan-rekan, jika terdapat kesalahan data mohon koreksi 🙏\n\ncc: {', '.join(unique(usernames))}")
-
+            # await client.send_message(destination, f"bapak/ibu/rekan, jika terdapat kesalahan data mohon koreksi 🙏\n\ncc: {', '.join(unique(usernames))}")
 
     @client.on(events.NewMessage(pattern='(?i)cancel|CANCEL'))
     async def cancel_to_cc(event):
@@ -174,7 +239,7 @@ if __name__ == '__main__':
     print(time.asctime(), '-', 'Auto-replying...')
     client.start(phone)
     # list all sessions
-    # print(client.session.list_sessions())
+    print(client.session.list_sessions())
 
     # delete current session (current session is associated with `username` variable)
     # client.log_out()
