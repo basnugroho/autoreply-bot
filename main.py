@@ -135,12 +135,12 @@ if __name__ == '__main__':
             #         break
             # if requester == "":
             #     print(f"requester unknown, peer_id {peer_id}")
-            requester = 'Internal Fallout NOSS-F Solution'
+            requester = 'marinekara'
             moban = str(event.message.message)
             message_splitted = moban.split('\n')
             message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
 
-            await client.send_message(requester, f"[AUTO FORWARDER to {requester}] {event.message.peer_id}")
+            await client.send_message(requester, f"[AUTO FORWARD OTP Gladius to {requester}]")
             await client.send_message(requester, moban)
             await event.respond(f"forwarded to {requester} 💯")
 
@@ -169,7 +169,28 @@ if __name__ == '__main__':
             message_splitted = moban.split('\n')
             message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
 
-            await client.send_message(requester, f"[AUTO FORWARDER to {requester}]")
+            await client.send_message(requester, f"[AUTO FORWARD OTP KPRO to {requester}]")
+            await client.send_message(requester, moban)
+            await event.respond(f"forwarded to {requester} 💯")
+
+    # uimtools
+    @client.on(events.NewMessage(pattern='(?i)Your OTP for uimtools is'))
+    async def handler(event):
+        if event.is_private:  # only auto-reply to private chats
+            print("kpro OTP request")
+            print(event)
+            #print(str(event.message))
+            peer_id = str(event.message.peer_id)
+            print(f"peer_id: {peer_id}")
+            peer_id = int(re.findall('[0-9]+', peer_id)[0])
+            print(peer_id)
+
+            requester = 'Internal Fallout NOSS-F Solution'
+            moban = str(event.message.message)
+            message_splitted = moban.split('\n')
+            message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
+
+            await client.send_message(requester, f"[AUTO FORWARD OTP UIM to {requester}]")
             await client.send_message(requester, moban)
             await event.respond(f"forwarded to {requester} 💯")
 
