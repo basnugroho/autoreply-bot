@@ -135,7 +135,7 @@ if __name__ == '__main__':
             #         break
             # if requester == "":
             #     print(f"requester unknown, peer_id {peer_id}")
-            requester = "Kakikukaku"
+            requester = 'Internal Fallout NOSS-F Solution'
             moban = str(event.message.message)
             message_splitted = moban.split('\n')
             message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
