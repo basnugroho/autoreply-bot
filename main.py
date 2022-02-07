@@ -135,7 +135,7 @@ if __name__ == '__main__':
             #         break
             # if requester == "":
             #     print(f"requester unknown, peer_id {peer_id}")
-            requester = 'marinekara'
+            requester = 'Internal Fallout NOSS-F Solution'
             moban = str(event.message.message)
             message_splitted = moban.split('\n')
             message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
@@ -169,7 +169,7 @@ if __name__ == '__main__':
             message_splitted = moban.split('\n')
             message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
 
-            await client.send_message(requester, f"[AUTO FORWARD OTP KPRO to {requester}]")
+            await client.send_message(requester, f"[AUTO FORWARD OTP KPRO or Dashboard FF to {requester}]")
             await client.send_message(requester, moban)
             await event.respond(f"forwarded to {requester} 💯")
 
@@ -190,7 +190,7 @@ if __name__ == '__main__':
             message_splitted = moban.split('\n')
             message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
 
-            await client.send_message(requester, f"[AUTO FORWARD OTP UIM to {requester}]")
+            await client.send_message(requester, f"[AUTO FORWARD OTP UIMTOOLS to {requester}]")
             await client.send_message(requester, moban)
             await event.respond(f"forwarded to {requester} 💯")
 
