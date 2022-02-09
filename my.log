@@ -1,85 +1,30 @@
 nohup: ignoring input
-False
-Mon Jan 31 22:07:21 2022 - Auto-replying...
-['ff-roc1', 'basnugroho', 'ff-roc-server', 'ff-roc-local', 'ff-roc', 'ff-roc-local1']
-kpro OTP request
-NewMessage.Event(original_update=UpdateShortMessage(id=507736, user_id=1298139737, message='Your OTP Code is 800834 this is valid until 2022-02-01 07:54:12 WIB', pts=929138, pts_count=1, date=datetime.datetime(2022, 2, 1, 0, 55, 4, tzinfo=datetime.timezone.utc), out=False, mentioned=False, media_unread=False, silent=False, fwd_from=None, via_bot_id=None, reply_to=None, entities=[MessageEntityBold(offset=17, length=6)], ttl_period=None), pattern_match=<re.Match object; span=(0, 16), match='Your OTP Code is'>, message=Message(id=507736, peer_id=PeerUser(user_id=1298139737), date=datetime.datetime(2022, 2, 1, 0, 55, 4, tzinfo=datetime.timezone.utc), message='Your OTP Code is 800834 this is valid until 2022-02-01 07:54:12 WIB', out=False, mentioned=False, media_unread=False, silent=False, post=None, from_scheduled=None, legacy=None, edit_hide=None, pinned=None, from_id=PeerUser(user_id=1298139737), fwd_from=None, via_bot_id=None, reply_to=None, media=None, reply_markup=None, entities=[MessageEntityBold(offset=17, length=6)], views=None, forwards=None, replies=None, edit_date=None, post_author=None, grouped_id=None, restriction_reason=[], ttl_period=None))
-peer_id: PeerUser(user_id=1298139737)
-1298139737
-kpro OTP request
-NewMessage.Event(original_update=UpdateShortMessage(id=507738, user_id=1298139737, message='Your OTP Code is 961882 this is valid until 2022-02-01 08:00:02 WIB', pts=929141, pts_count=1, date=datetime.datetime(2022, 2, 1, 1, 0, 54, tzinfo=datetime.timezone.utc), out=False, mentioned=False, media_unread=False, silent=False, fwd_from=None, via_bot_id=None, reply_to=None, entities=[MessageEntityBold(offset=17, length=6)], ttl_period=None), pattern_match=<re.Match object; span=(0, 16), match='Your OTP Code is'>, message=Message(id=507738, peer_id=PeerUser(user_id=1298139737), date=datetime.datetime(2022, 2, 1, 1, 0, 54, tzinfo=datetime.timezone.utc), message='Your OTP Code is 961882 this is valid until 2022-02-01 08:00:02 WIB', out=False, mentioned=False, media_unread=False, silent=False, post=None, from_scheduled=None, legacy=None, edit_hide=None, pinned=None, from_id=PeerUser(user_id=1298139737), fwd_from=None, via_bot_id=None, reply_to=None, media=None, reply_markup=None, entities=[MessageEntityBold(offset=17, length=6)], views=None, forwards=None, replies=None, edit_date=None, post_author=None, grouped_id=None, restriction_reason=[], ttl_period=None))
-peer_id: PeerUser(user_id=1298139737)
-1298139737
-kpro OTP request
-NewMessage.Event(original_update=UpdateShortMessage(id=507744, user_id=1298139737, message='Your OTP Code is 170301 this is valid until 2022-02-01 08:44:11 WIB', pts=929153, pts_count=1, date=datetime.datetime(2022, 2, 1, 1, 43, 12, tzinfo=datetime.timezone.utc), out=False, mentioned=False, media_unread=False, silent=False, fwd_from=None, via_bot_id=None, reply_to=None, entities=[MessageEntityBold(offset=17, length=6)], ttl_period=None), pattern_match=<re.Match object; span=(0, 16), match='Your OTP Code is'>, message=Message(id=507744, peer_id=PeerUser(user_id=1298139737), date=datetime.datetime(2022, 2, 1, 1, 43, 12, tzinfo=datetime.timezone.utc), message='Your OTP Code is 170301 this is valid until 2022-02-01 08:44:11 WIB', out=False, mentioned=False, media_unread=False, silent=False, post=None, from_scheduled=None, legacy=None, edit_hide=None, pinned=None, from_id=PeerUser(user_id=1298139737), fwd_from=None, via_bot_id=None, reply_to=None, media=None, reply_markup=None, entities=[MessageEntityBold(offset=17, length=6)], views=None, forwards=None, replies=None, edit_date=None, post_author=None, grouped_id=None, restriction_reason=[], ttl_period=None))
-peer_id: PeerUser(user_id=1298139737)
-1298139737
-gladius OTP request
-peer_id: PeerUser(user_id=1448100713)
-1448100713
-kpro OTP request
-NewMessage.Event(original_update=UpdateShortMessage(id=507776, user_id=1298139737, message='Your OTP Code is 799920 this is valid until 2022-02-01 12:00:23 WIB', pts=929204, pts_count=1, date=datetime.datetime(2022, 2, 1, 4, 59, 25, tzinfo=datetime.timezone.utc), out=False, mentioned=False, media_unread=False, silent=False, fwd_from=None, via_bot_id=None, reply_to=None, entities=[MessageEntityBold(offset=17, length=6)], ttl_period=None), pattern_match=<re.Match object; span=(0, 16), match='Your OTP Code is'>, message=Message(id=507776, peer_id=PeerUser(user_id=1298139737), date=datetime.datetime(2022, 2, 1, 4, 59, 25, tzinfo=datetime.timezone.utc), message='Your OTP Code is 799920 this is valid until 2022-02-01 12:00:23 WIB', out=False, mentioned=False, media_unread=False, silent=False, post=None, from_scheduled=None, legacy=None, edit_hide=None, pinned=None, from_id=PeerUser(user_id=1298139737), fwd_from=None, via_bot_id=None, reply_to=None, media=None, reply_markup=None, entities=[MessageEntityBold(offset=17, length=6)], views=None, forwards=None, replies=None, edit_date=None, post_author=None, grouped_id=None, restriction_reason=[], ttl_period=None))
-peer_id: PeerUser(user_id=1298139737)
-1298139737
-kpro OTP request
-NewMessage.Event(original_update=UpdateShortMessage(id=507781, user_id=1298139737, message='Your OTP Code is 914064 this is valid until 2022-02-01 12:16:51 WIB', pts=929211, pts_count=1, date=datetime.datetime(2022, 2, 1, 5, 17, 45, tzinfo=datetime.timezone.utc), out=False, mentioned=False, media_unread=False, silent=False, fwd_from=None, via_bot_id=None, reply_to=None, entities=[MessageEntityBold(offset=17, length=6)], ttl_period=None), pattern_match=<re.Match object; span=(0, 16), match='Your OTP Code is'>, message=Message(id=507781, peer_id=PeerUser(user_id=1298139737), date=datetime.datetime(2022, 2, 1, 5, 17, 45, tzinfo=datetime.timezone.utc), message='Your OTP Code is 914064 this is valid until 2022-02-01 12:16:51 WIB', out=False, mentioned=False, media_unread=False, silent=False, post=None, from_scheduled=None, legacy=None, edit_hide=None, pinned=None, from_id=PeerUser(user_id=1298139737), fwd_from=None, via_bot_id=None, reply_to=None, media=None, reply_markup=None, entities=[MessageEntityBold(offset=17, length=6)], views=None, forwards=None, replies=None, edit_date=None, post_author=None, grouped_id=None, restriction_reason=[], ttl_period=None))
-peer_id: PeerUser(user_id=1298139737)
-1298139737
-kpro OTP request
-NewMessage.Event(original_update=UpdateShortMessage(id=507823, user_id=1298139737, message='Your OTP Code is 180240 this is valid until 2022-02-01 15:21:35 WIB', pts=929259, pts_count=1, date=datetime.datetime(2022, 2, 1, 8, 22, 29, tzinfo=datetime.timezone.utc), out=False, mentioned=False, media_unread=False, silent=False, fwd_from=None, via_bot_id=None, reply_to=None, entities=[MessageEntityBold(offset=17, length=6)], ttl_period=None), pattern_match=<re.Match object; span=(0, 16), match='Your OTP Code is'>, message=Message(id=507823, peer_id=PeerUser(user_id=1298139737), date=datetime.datetime(2022, 2, 1, 8, 22, 29, tzinfo=datetime.timezone.utc), message='Your OTP Code is 180240 this is valid until 2022-02-01 15:21:35 WIB', out=False, mentioned=False, media_unread=False, silent=False, post=None, from_scheduled=None, legacy=None, edit_hide=None, pinned=None, from_id=PeerUser(user_id=1298139737), fwd_from=None, via_bot_id=None, reply_to=None, media=None, reply_markup=None, entities=[MessageEntityBold(offset=17, length=6)], views=None, forwards=None, replies=None, edit_date=None, post_author=None, grouped_id=None, restriction_reason=[], ttl_period=None))
-peer_id: PeerUser(user_id=1298139737)
-1298139737
-kpro OTP request
-NewMessage.Event(original_update=UpdateShortMessage(id=507850, user_id=1298139737, message='Your OTP Code is 404607 this is valid until 2022-02-01 18:30:51 WIB', pts=929295, pts_count=1, date=datetime.datetime(2022, 2, 1, 11, 29, 52, tzinfo=datetime.timezone.utc), out=False, mentioned=False, media_unread=False, silent=False, fwd_from=None, via_bot_id=None, reply_to=None, entities=[MessageEntityBold(offset=17, length=6)], ttl_period=None), pattern_match=<re.Match object; span=(0, 16), match='Your OTP Code is'>, message=Message(id=507850, peer_id=PeerUser(user_id=1298139737), date=datetime.datetime(2022, 2, 1, 11, 29, 52, tzinfo=datetime.timezone.utc), message='Your OTP Code is 404607 this is valid until 2022-02-01 18:30:51 WIB', out=False, mentioned=False, media_unread=False, silent=False, post=None, from_scheduled=None, legacy=None, edit_hide=None, pinned=None, from_id=PeerUser(user_id=1298139737), fwd_from=None, via_bot_id=None, reply_to=None, media=None, reply_markup=None, entities=[MessageEntityBold(offset=17, length=6)], views=None, forwards=None, replies=None, edit_date=None, post_author=None, grouped_id=None, restriction_reason=[], ttl_period=None))Unhandled exception on forward_daman
+Task exception was never retrieved
+future: <Task finished name='Task-4283' coro=<UpdateMethods._dispatch_queue_updates() done, defined at /usr/local/lib/python3.8/dist-packages/telethon/client/updates.py:393> exception=OperationalError('database is locked')>
 Traceback (most recent call last):
-  File "/home/pi/.local/lib/python3.9/site-packages/telethon/client/updates.py", line 467, in _dispatch_update
-    await callback(event)
-  File "/home/pi/autoreply-bot/main.py", line 201, in forward_daman
-    from_ = await event.client.get_entity(event.from_id)
-  File "/home/pi/.local/lib/python3.9/site-packages/telethon/client/users.py", line 292, in get_entity
-    inputs.append(await self.get_input_entity(x))
-  File "/home/pi/.local/lib/python3.9/site-packages/telethon/client/users.py", line 443, in get_input_entity
-    peer = utils.get_peer(peer)
-  File "/home/pi/.local/lib/python3.9/site-packages/telethon/utils.py", line 997, in get_peer
-    _raise_cast_fail(peer, 'Peer')
-  File "/home/pi/.local/lib/python3.9/site-packages/telethon/utils.py", line 138, in _raise_cast_fail
-    raise TypeError('Cannot cast {} to any kind of {}.'.format(
-TypeError: Cannot cast NoneType to any kind of Peer.
-
-peer_id: PeerUser(user_id=1298139737)
-1298139737
-kpro OTP request
-NewMessage.Event(original_update=UpdateShortMessage(id=507876, user_id=1298139737, message='Your OTP Code is 064283 this is valid until 2022-02-01 22:19:25 WIB', pts=929326, pts_count=1, date=datetime.datetime(2022, 2, 1, 15, 20, 19, tzinfo=datetime.timezone.utc), out=False, mentioned=False, media_unread=False, silent=False, fwd_from=None, via_bot_id=None, reply_to=None, entities=[MessageEntityBold(offset=17, length=6)], ttl_period=None), pattern_match=<re.Match object; span=(0, 16), match='Your OTP Code is'>, message=Message(id=507876, peer_id=PeerUser(user_id=1298139737), date=datetime.datetime(2022, 2, 1, 15, 20, 19, tzinfo=datetime.timezone.utc), message='Your OTP Code is 064283 this is valid until 2022-02-01 22:19:25 WIB', out=False, mentioned=False, media_unread=False, silent=False, post=None, from_scheduled=None, legacy=None, edit_hide=None, pinned=None, from_id=PeerUser(user_id=1298139737), fwd_from=None, via_bot_id=None, reply_to=None, media=None, reply_markup=None, entities=[MessageEntityBold(offset=17, length=6)], views=None, forwards=None, replies=None, edit_date=None, post_author=None, grouped_id=None, restriction_reason=[], ttl_period=None))
-peer_id: PeerUser(user_id=1298139737)
-1298139737
-kpro OTP request
-NewMessage.Event(original_update=UpdateShortMessage(id=507905, user_id=1298139737, message='Your OTP Code is 012973 this is valid until 2022-02-02 08:46:54 WIB', pts=929365, pts_count=1, date=datetime.datetime(2022, 2, 2, 1, 45, 55, tzinfo=datetime.timezone.utc), out=False, mentioned=False, media_unread=False, silent=False, fwd_from=None, via_bot_id=None, reply_to=None, entities=[MessageEntityBold(offset=17, length=6)], ttl_period=None), pattern_match=<re.Match object; span=(0, 16), match='Your OTP Code is'>, message=Message(id=507905, peer_id=PeerUser(user_id=1298139737), date=datetime.datetime(2022, 2, 2, 1, 45, 55, tzinfo=datetime.timezone.utc), message='Your OTP Code is 012973 this is valid until 2022-02-02 08:46:54 WIB', out=False, mentioned=False, media_unread=False, silent=False, post=None, from_scheduled=None, legacy=None, edit_hide=None, pinned=None, from_id=PeerUser(user_id=1298139737), fwd_from=None, via_bot_id=None, reply_to=None, media=None, reply_markup=None, entities=[MessageEntityBold(offset=17, length=6)], views=None, forwards=None, replies=None, edit_date=None, post_author=None, grouped_id=None, restriction_reason=[], ttl_period=None))
-peer_id: PeerUser(user_id=1298139737)
-1298139737
-gladius OTP request
-peer_id: PeerUser(user_id=1448100713)
-1448100713
-gladius OTP request
-peer_id: PeerUser(user_id=1448100713)
-1448100713
-gladius OTP request
-peer_id: PeerUser(user_id=1448100713)
-1448100713
-kpro OTP request
-NewMessage.Event(original_update=UpdateShortMessage(id=508092, user_id=1298139737, message='Your OTP Code is 774723 this is valid until 2022-02-02 12:01:37 WIB', pts=929653, pts_count=1, date=datetime.datetime(2022, 2, 2, 5, 2, 34, tzinfo=datetime.timezone.utc), out=False, mentioned=False, media_unread=False, silent=False, fwd_from=None, via_bot_id=None, reply_to=None, entities=[MessageEntityBold(offset=17, length=6)], ttl_period=None), pattern_match=<re.Match object; span=(0, 16), match='Your OTP Code is'>, message=Message(id=508092, peer_id=PeerUser(user_id=1298139737), date=datetime.datetime(2022, 2, 2, 5, 2, 34, tzinfo=datetime.timezone.utc), message='Your OTP Code is 774723 this is valid until 2022-02-02 12:01:37 WIB', out=False, mentioned=False, media_unread=False, silent=False, post=None, from_scheduled=None, legacy=None, edit_hide=None, pinned=None, from_id=PeerUser(user_id=1298139737), fwd_from=None, via_bot_id=None, reply_to=None, media=None, reply_markup=None, entities=[MessageEntityBold(offset=17, length=6)], views=None, forwards=None, replies=None, edit_date=None, post_author=None, grouped_id=None, restriction_reason=[], ttl_period=None))
-peer_id: PeerUser(user_id=1298139737)
-1298139737
-kpro OTP request
-NewMessage.Event(original_update=UpdateShortMessage(id=508177, user_id=1298139737, message='Your OTP Code is 386022 this is valid until 2022-02-02 15:01:16 WIB', pts=929765, pts_count=1, date=datetime.datetime(2022, 2, 2, 8, 0, 18, tzinfo=datetime.timezone.utc), out=False, mentioned=False, media_unread=False, silent=False, fwd_from=None, via_bot_id=None, reply_to=None, entities=[MessageEntityBold(offset=17, length=6)], ttl_period=None), pattern_match=<re.Match object; span=(0, 16), match='Your OTP Code is'>, message=Message(id=508177, peer_id=PeerUser(user_id=1298139737), date=datetime.datetime(2022, 2, 2, 8, 0, 18, tzinfo=datetime.timezone.utc), message='Your OTP Code is 386022 this is valid until 2022-02-02 15:01:16 WIB', out=False, mentioned=False, media_unread=False, silent=False, post=None, from_scheduled=None, legacy=None, edit_hide=None, pinned=None, from_id=PeerUser(user_id=1298139737), fwd_from=None, via_bot_id=None, reply_to=None, media=None, reply_markup=None, entities=[MessageEntityBold(offset=17, length=6)], views=None, forwards=None, replies=None, edit_date=None, post_author=None, grouped_id=None, restriction_reason=[], ttl_period=None))
-peer_id: PeerUser(user_id=1298139737)
-1298139737
-kpro OTP request
-NewMessage.Event(original_update=UpdateShortMessage(id=508257, user_id=1298139737, message='Your OTP Code is 166293 this is valid until 2022-02-02 18:38:25 WIB', pts=929861, pts_count=1, date=datetime.datetime(2022, 2, 2, 11, 37, 25, tzinfo=datetime.timezone.utc), out=False, mentioned=False, media_unread=False, silent=False, fwd_from=None, via_bot_id=None, reply_to=None, entities=[MessageEntityBold(offset=17, length=6)], ttl_period=None), pattern_match=<re.Match object; span=(0, 16), match='Your OTP Code is'>, message=Message(id=508257, peer_id=PeerUser(user_id=1298139737), date=datetime.datetime(2022, 2, 2, 11, 37, 25, tzinfo=datetime.timezone.utc), message='Your OTP Code is 166293 this is valid until 2022-02-02 18:38:25 WIB', out=False, mentioned=False, media_unread=False, silent=False, post=None, from_scheduled=None, legacy=None, edit_hide=None, pinned=None, from_id=PeerUser(user_id=1298139737), fwd_from=None, via_bot_id=None, reply_to=None, media=None, reply_markup=None, entities=[MessageEntityBold(offset=17, length=6)], views=None, forwards=None, replies=None, edit_date=None, post_author=None, grouped_id=None, restriction_reason=[], ttl_period=None))
-peer_id: PeerUser(user_id=1298139737)
-1298139737
-kpro OTP request
-NewMessage.Event(original_update=UpdateShortMessage(id=508342, user_id=1298139737, message='Your OTP Code is 587834 this is valid until 2022-02-02 22:02:09 WIB', pts=929990, pts_count=1, date=datetime.datetime(2022, 2, 2, 15, 1, 10, tzinfo=datetime.timezone.utc), out=False, mentioned=False, media_unread=False, silent=False, fwd_from=None, via_bot_id=None, reply_to=None, entities=[MessageEntityBold(offset=17, length=6)], ttl_period=None), pattern_match=<re.Match object; span=(0, 16), match='Your OTP Code is'>, message=Message(id=508342, peer_id=PeerUser(user_id=1298139737), date=datetime.datetime(2022, 2, 2, 15, 1, 10, tzinfo=datetime.timezone.utc), message='Your OTP Code is 587834 this is valid until 2022-02-02 22:02:09 WIB', out=False, mentioned=False, media_unread=False, silent=False, post=None, from_scheduled=None, legacy=None, edit_hide=None, pinned=None, from_id=PeerUser(user_id=1298139737), fwd_from=None, via_bot_id=None, reply_to=None, media=None, reply_markup=None, entities=[MessageEntityBold(offset=17, length=6)], views=None, forwards=None, replies=None, edit_date=None, post_author=None, grouped_id=None, restriction_reason=[], ttl_period=None))
-peer_id: PeerUser(user_id=1298139737)
-1298139737
-kpro OTP request
-NewMessage.Event(original_update=UpdateShortMessage(id=508351, user_id=1298139737, message='Your OTP Code is 170148 this is valid until 2022-02-03 07:29:24 WIB', pts=930006, pts_count=1, date=datetime.datetime(2022, 2, 3, 0, 30, 23, tzinfo=datetime.timezone.utc), out=False, mentioned=False, media_unread=False, silent=False, fwd_from=None, via_bot_id=None, reply_to=None, entities=[MessageEntityBold(offset=17, length=6)], ttl_period=None), pattern_match=<re.Match object; span=(0, 16), match='Your OTP Code is'>, message=Message(id=508351, peer_id=PeerUser(user_id=1298139737), date=datetime.datetime(2022, 2, 3, 0, 30, 23, tzinfo=datetime.timezone.utc), message='Your OTP Code is 170148 this is valid until 2022-02-03 07:29:24 WIB', out=False, mentioned=False, media_unread=False, silent=False, post=None, from_scheduled=None, legacy=None, edit_hide=None, pinned=None, from_id=PeerUser(user_id=1298139737), fwd_from=None, via_bot_id=None, reply_to=None, media=None, reply_markup=None, entities=[MessageEntityBold(offset=17, length=6)], views=None, forwards=None, replies=None, edit_date=None, post_author=None, grouped_id=None, restriction_reason=[], ttl_period=None))
+  File "/usr/local/lib/python3.8/dist-packages/telethon/client/updates.py", line 395, in _dispatch_queue_updates
+    await self._dispatch_update(*self._updates_queue.get_nowait())
+  File "/usr/local/lib/python3.8/dist-packages/telethon/client/updates.py", line 408, in _dispatch_update
+    await self._get_difference(update, channel_id, pts_date)
+  File "/usr/local/lib/python3.8/dist-packages/telethon/client/updates.py", line 558, in _get_difference
+    result = await self(functions.updates.GetChannelDifferenceRequest(
+  File "/usr/local/lib/python3.8/dist-packages/telethon/client/users.py", line 30, in __call__
+    return await self._call(self._sender, request, ordered=ordered)
+  File "/usr/local/lib/python3.8/dist-packages/telethon/client/users.py", line 85, in _call
+    self.session.process_entities(result)
+  File "/usr/local/lib/python3.8/dist-packages/telethon/sessions/sqlite.py", line 287, in process_entities
+    c.executemany(
+sqlite3.OperationalError: database is locked
+Unhandled error while processing msgs
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/telethon/network/mtprotosender.py", line 540, in _recv_loop
+    await self._process_message(message)
+  File "/usr/local/lib/python3.8/dist-packages/telethon/network/mtprotosender.py", line 555, in _process_message
+    await handler(message)
+  File "/usr/local/lib/python3.8/dist-packages/telethon/network/mtprotosender.py", line 656, in _handle_update
+    self._update_callback(message.obj)
+  File "/usr/local/lib/python3.8/dist-packages/telethon/client/updates.py", line 304, in _handle_update
+    self.session.process_entities(update)
+  File "/usr/local/lib/python3.8/dist-packages/telethon/sessions/sqlite.py", line 287, in process_entities
+    c.executemany(
+sqlite3.OperationalError: database is locked

@@ -10,12 +10,12 @@ from telethon import functions, types
 
 # sample API_ID from https://github.com/telegramdesktop/tdesktop/blob/f98fdeab3fb2ba6f55daf8481595f879729d1b84/Telegram/SourceFiles/config.h#L220
 # or use your own
-api_id = 1200750
-api_hash = '7970f21bf68122b9ad71f698092a7650'
+api_id = 9380480
+api_hash = 'f3d8f3bf880eec1db6a52a37ef22e2ed'
 
 # fill in your own details here
-phone = '6282141421214'
-session_file = 'ff-roc-local'  # use your username if unsure
+phone = '6285331899365'
+session_file = 'anita'  # use your username if unsure
 
 with TelegramClient(session_file, api_id, api_hash) as client:
     result = client(functions.account.ResetAuthorizationRequest(hash=-12398745604826))
