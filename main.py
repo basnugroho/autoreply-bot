@@ -6,6 +6,7 @@ from telethon import utils
 import pandas as pd
 from telethon.sync import TelegramClient
 from telethon import functions, types
+from datetime import datetime
 
 
 # sample API_ID from https://github.com/telegramdesktop/tdesktop/blob/f98fdeab3fb2ba6f55daf8481595f879729d1b84/Telegram/SourceFiles/config.h#L220
@@ -20,7 +21,7 @@ with open("session.txt", "r") as file:
     first_line = file.readline()
     for last_line in file:
         pass
-print(first_line)
+print("session name: "+first_line)
 session_file = first_line #use your username if unsure
 
 with TelegramClient(session_file, api_id, api_hash) as client:
@@ -92,7 +93,115 @@ if __name__ == '__main__':
     #                 await event.respond(f"**[AUTO REPLY]** \nBapak/Ibu/Kakak __@{from_.username}__. Mohon maaf saya sedang **cuti** hingga **{cuti_until}** 🏖⏳ \nJika urgent silahkan call telegram ini 🙏🙂")
     #                 users.append(from_.username)
 
-    # fu woc
+    def record_messages(event):
+        peer_id = str(event.message.peer_id)
+        # write
+        f = open("message_log.txt", "a")
+        f.write("time: "+str(datetime.now())+", ")
+        f.write("peer id: "+str(peer_id)+", ")
+        if "1273072077" in str(peer_id):
+            f.write("group: Kawal FF-DIT, ")
+        else:
+            f.write("group: , ")
+        f.write("message: "+str(event.message.message)+", ")
+        f.write("event_message: "+str(event.message)+"\n")
+        f.close()
+        # read
+        with open("message_log.txt", "r") as file:
+            for last_line in file:
+                pass
+        print(last_line)
+        file.close()
+
+    # ROC HD FF #NOSSF
+    @client.on(events.NewMessage(pattern='(?i)#REQ #NOSSF |compwork'))
+    async def handler(event):
+        record_messages(event)
+        await event.respond(f"**[auto responder]** Mohon cek @fftreg5 🙏")
+        with open("message_log.txt", "r") as file:
+            for last_line in file:
+                pass
+        file.close()
+        await event.respond(str(last_line))
+
+    # Kawal FF DIT
+    @client.on(events.NewMessage(pattern='(?i)ggn|idem|gangguan|error|lemot'))
+    async def handler(event):
+        record_messages(event)
+        
+    # gladius
+    @client.on(events.NewMessage(pattern='(?i)Your OTP Code User 930436 is'))
+    async def handler(event):
+        peer_id = str(event.message.peer_id)
+        peer_id = int(re.findall('[0-9]+', peer_id)[0])
+        if event.is_private and peer_id==1448100713:  # only auto-reply to private chats
+            print(str(datetime.now())+": Gladius OTP request")
+            print(peer_id)
+
+            requester = 'Internal Fallout NOSS-F Solution'
+            moban = str(event.message.message)
+            message_splitted = moban.split('\n')
+            message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
+
+            await client.send_message(requester, f"[OTP Gladius 📩 {requester}]")
+            await client.send_message(requester, moban)
+            pesan = """Harap diperhatikan checklist berikut sebelum create radius/pcrf di gladius:
+1. cek apakah termasuk no. Fraud di bot @telkom_roc5_bot, 
+format: 
+/cekfraud no_inet (bisa langsung banyak nomor)
+2. cek NCX apakah masih aktif / tidak
+3. cek di UIM nya ada service aktif / tidak"""
+            await client.send_message(requester, pesan)
+            await event.respond(f"forwarded to {requester} 💯")
+        record_messages(event)
+
+    # kpro & dashboard ff
+    @client.on(events.NewMessage(pattern='(?i)Your OTP Code is'))
+    async def handler(event):
+        peer_id = str(event.message.peer_id)
+        peer_id = int(re.findall('[0-9]+', peer_id)[0])
+        if event.is_private and peer_id==1298139737:  # only auto-reply to private chats
+            print(str(datetime.now())+": KPRO OTP request")
+            requester = 'Internal Fallout NOSS-F Solution'
+            moban = str(event.message.message)
+            message_splitted = moban.split('\n')
+            message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
+
+            await client.send_message(requester, f"[OTP KPRO 📩 {requester}]")
+            await client.send_message(requester, moban)
+            await event.respond(f"forwarded to {requester} 💯")
+        else:  # only auto-reply to private chats
+            print(str(datetime.now())+": Dashboard FF OTP request")
+            print(peer_id)
+
+            requester = 'Internal Fallout NOSS-F Solution'
+            moban = str(event.message.message)
+            message_splitted = moban.split('\n')
+            message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
+
+            await client.send_message(requester, f"[OTP Dashboard FF 📩 {requester}]")
+            await client.send_message(requester, moban)
+            await event.respond(f"forwarded to {requester} 💯")
+        record_messages(event)
+
+    # uimtools
+    @client.on(events.NewMessage(pattern='(?i)Your OTP for uimtools is'))
+    async def handler(event):
+        peer_id = str(event.message.peer_id)
+        peer_id = int(re.findall('[0-9]+', peer_id)[0])
+        if event.is_private and peer_id==1124477729:  # only auto-reply to private chats
+            print(str(datetime.now())+": UIMTools OTP request")
+            requester = 'Internal Fallout NOSS-F Solution'
+            moban = str(event.message.message)
+            message_splitted = moban.split('\n')
+            message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
+
+            await client.send_message(requester.strip(), f"[OTP UIMTOOLS 📩 {requester}]")
+            await client.send_message(requester.strip(), moban)
+            await event.respond(f"forwarded to {requester} 💯")
+        record_messages(event)
+
+    # fu woc (roc hd ff)
     @client.on(events.NewMessage(pattern='(?i)fu|woc|fu woc'))
     async def handler(event):
         if event.is_private:  # only auto-reply to private chats
@@ -122,80 +231,8 @@ if __name__ == '__main__':
             # await client.send_message(destination, f"rekan-rekan, jika terdapat kesalahan data mohon koreksi 🙏\n\ncc: {', '.join(unique(usernames))}")
             await client.send_message(destination, f"jika terdapat kesalahan atau ada update data mohon japri 🙏")
             await event.respond("done 💯")
-    
-    # gladius
-    @client.on(events.NewMessage(pattern='(?i)Your OTP Code User 930436 is'))
-    async def handler(event):
-        peer_id = str(event.message.peer_id)
-        peer_id = int(re.findall('[0-9]+', peer_id)[0])
-        if event.is_private and peer_id==1448100713:  # only auto-reply to private chats
-            print("gladius OTP request")
-            print(peer_id)
 
-            requester = 'Internal Fallout NOSS-F Solution'
-            moban = str(event.message.message)
-            message_splitted = moban.split('\n')
-            message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
-
-            await client.send_message(requester, f"[OTP Gladius 📩 {requester}]")
-            await client.send_message(requester, moban)
-            pesan = """Harap diperhatikan checklist berikut sebelum create radius/pcrf di gladius:
-1. cek apakah termasuk no. Fraud di bot @telkom_roc5_bot, 
-format: 
-/cekfraud no_inet (bisa langsung banyak nomor)
-2. cek NCX apakah masih aktif / tidak
-3. cek di UIM nya ada service aktif / tidak"""
-            await client.send_message(requester, pesan)
-            await event.respond(f"forwarded to {requester} 💯")
-
-    # kpro
-    @client.on(events.NewMessage(pattern='(?i)Your OTP Code is'))
-    async def handler(event):
-        peer_id = str(event.message.peer_id)
-        peer_id = int(re.findall('[0-9]+', peer_id)[0])
-        if event.is_private and peer_id==1298139737:  # only auto-reply to private chats
-            print("KPRO OTP request")
-            print(peer_id)
-
-            requester = 'Internal Fallout NOSS-F Solution'
-            moban = str(event.message.message)
-            message_splitted = moban.split('\n')
-            message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
-
-            await client.send_message(requester, f"[OTP KPRO 📩 {requester}]")
-            await client.send_message(requester, moban)
-            await event.respond(f"forwarded to {requester} 💯")
-        else:  # only auto-reply to private chats
-            print("Dashboard FF OTP request")
-            print(peer_id)
-
-            requester = 'Internal Fallout NOSS-F Solution'
-            moban = str(event.message.message)
-            message_splitted = moban.split('\n')
-            message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
-
-            await client.send_message(requester, f"[OTP Dashboard FF 📩 {requester}]")
-            await client.send_message(requester, moban)
-            await event.respond(f"forwarded to {requester} 💯")
-
-    # uimtools
-    @client.on(events.NewMessage(pattern='(?i)Your OTP for uimtools is'))
-    async def handler(event):
-        peer_id = str(event.message.peer_id)
-        peer_id = int(re.findall('[0-9]+', peer_id)[0])
-        if event.is_private and peer_id==1124477729:  # only auto-reply to private chats
-            print("uimtools OTP request")
-            print(peer_id)
-
-            requester = 'Internal Fallout NOSS-F Solution'
-            moban = str(event.message.message)
-            message_splitted = moban.split('\n')
-            message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
-
-            await client.send_message(requester, f"[OTP UIMTOOLS 📩 {requester}]")
-            await client.send_message(requester, moban)
-            await event.respond(f"forwarded to {requester} 💯")
-
+    # fu daman/uim
     @client.on(events.NewMessage(pattern='(?i)daman|uim'))
     async def forward_daman(event):
         if event.is_private:  # only auto-reply to private chats
@@ -248,6 +285,7 @@ format:
             await event.respond(f"jika terdapat kesalahan data mohon koreksi 🙏")
             # await client.send_message(destination, f"bapak/ibu/rekan, jika terdapat kesalahan data mohon koreksi 🙏\n\ncc: {', '.join(unique(usernames))}")
 
+    # fu cc
     @client.on(events.NewMessage(pattern='(?i)cancel|CANCEL'))
     async def cancel_to_cc(event):
         if event.is_private:  # only auto-reply to private chats
@@ -263,6 +301,7 @@ format:
     client.start(phone)
     # list all sessions
     print(client.session.list_sessions())
+    print("")
 
     # delete current session (current session is associated with `username` variable)
     # client.log_out()
