@@ -15,10 +15,13 @@ api_hash = 'f3d8f3bf880eec1db6a52a37ef22e2ed'
 
 # fill in your own details here
 phone = '6282141421214'
-f = open("session.txt", "r")
-f_str = str(f.readline())
-print(f_str)
-session_file = f_str # use your username if unsure
+first_line = ""
+with open("session.txt", "r") as file:
+    first_line = file.readline()
+    for last_line in file:
+        pass
+print(first_line)
+session_file = first_line #use your username if unsure
 
 with TelegramClient(session_file, api_id, api_hash) as client:
     result = client(functions.account.ResetAuthorizationRequest(hash=-12398745604826))
