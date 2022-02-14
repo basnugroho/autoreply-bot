@@ -14,8 +14,8 @@ api_id = 9380480
 api_hash = 'f3d8f3bf880eec1db6a52a37ef22e2ed'
 
 # fill in your own details here
-phone = '6285331899365'
-session_file = 'anita'  # use your username if unsure
+phone = '6282141421214'
+session_file = 'ff-roc1'  # use your username if unsure
 
 with TelegramClient(session_file, api_id, api_hash) as client:
     result = client(functions.account.ResetAuthorizationRequest(hash=-12398745604826))
@@ -118,31 +118,37 @@ if __name__ == '__main__':
     #         await event.respond("done 💯")
     
     # gladius
-    # @client.on(events.NewMessage(pattern='(?i)Your OTP Code User 930182 is'))
-    # async def handler(event):
-    #     if event.is_private:  # only auto-reply to private chats
-    #         print("gladius OTP request")
-    #         peer_id = str(event.message.peer_id)
-    #         print(f"peer_id: {peer_id}")
-    #         peer_id = int(re.findall('[0-9]+', peer_id)[0])
-    #         print(peer_id)
-    #         # peers = {'basnugroho': 1298139737, 'marinekara': 1448100713}
-    #         # requester = ""
-    #         # for key, value in peers.items():
-    #         #     if peer_id == value:
-    #         #         requester = key
-    #         #         print("requester: "+requester)
-    #         #         break
-    #         # if requester == "":
-    #         #     print(f"requester unknown, peer_id {peer_id}")
-    #         requester = 'Internal Fallout NOSS-F Solution'
-    #         moban = str(event.message.message)
-    #         message_splitted = moban.split('\n')
-    #         message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
+    @client.on(events.NewMessage(pattern='(?i)Your OTP Code User 930182 is'))
+    async def handler(event):
+        if event.is_private:  # only auto-reply to private chats
+            print("gladius OTP request")
+            peer_id = str(event.message.peer_id)
+            print(f"peer_id: {peer_id}")
+            peer_id = int(re.findall('[0-9]+', peer_id)[0])
+            print(peer_id)
+            # peers = {'basnugroho': 1298139737, 'marinekara': 1448100713}
+            # requester = ""
+            # for key, value in peers.items():
+            #     if peer_id == value:
+            #         requester = key
+            #         print("requester: "+requester)
+            #         break
+            # if requester == "":
+            #     print(f"requester unknown, peer_id {peer_id}")
+            requester = 'Internal Fallout NOSS-F Solution'
+            moban = str(event.message.message)
+            message_splitted = moban.split('\n')
+            message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
 
-    #         await client.send_message(requester, f"[AUTO FORWARD OTP Gladius to {requester}]")
-    #         await client.send_message(requester, moban)
-    #         await event.respond(f"forwarded to {requester} 💯")
+            await client.send_message(requester, f"[AUTO FORWARD OTP Gladius to {requester}]")
+            await client.send_message(requester, moban)
+            pesan = """Harap diperhatikan checklist berikut sebelum create radius/pcrf di gladius:
+1. cek apakah termasuk no. Fraud di bot @telkom_roc5_bot, 
+format: 
+/cekfraud no_inet (bisa langsung banyak nomor)
+2. cek NCX apakah masih aktif / tidak
+3. cek di UIM nya ada service aktif / tidak"""
+            await event.respond(f"forwarded to {requester} 💯")
 
     # kpro
     @client.on(events.NewMessage(pattern='(?i)Your OTP Code is'))
@@ -164,7 +170,7 @@ if __name__ == '__main__':
             #         break
             # if requester == "":
             #     print(f"requester unknown, peer_id {peer_id}")
-            requester = 'Internal Fallout NOSS-F Solution'
+            requester = 'https://t.me/+DC4xiLUfyBgknY8z'
             moban = str(event.message.message)
             message_splitted = moban.split('\n')
             message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
