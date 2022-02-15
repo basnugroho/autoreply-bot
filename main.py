@@ -99,10 +99,16 @@ if __name__ == '__main__':
         f = open("message_log.txt", "a")
         f.write("time: "+str(datetime.now())+", ")
         f.write("peer id: "+str(peer_id)+", ")
-        if "1273072077" in str(peer_id):
-            f.write("group: Kawal FF-DIT, ")
+        group = ""
+        if  int(peer_id) == 1273072077:
+            group = "Kawal FF-DIT"
+        elif  int(peer_id) == 1080681328:
+            group = "ROC - HD FF WOC REG5"
+        elif int(peer_id) == 1273072077:
+            group = "Kawal FF-DIT"
         else:
-            f.write("group: , ")
+            group = ""
+        f.write(f"group: {group}, ")
         f.write("message: "+str(event.message.message)+", ")
         f.write("event_message: "+str(event.message)+"\n")
         f.close()
