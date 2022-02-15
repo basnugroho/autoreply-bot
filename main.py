@@ -95,16 +95,17 @@ if __name__ == '__main__':
 
     def record_messages(event):
         peer_id = str(event.message.peer_id)
+        peer_id = int(re.findall('[0-9]+', peer_id)[0])
         # write
         f = open("message_log.txt", "a")
         f.write("time: "+str(datetime.now())+", ")
         f.write("peer id: "+str(peer_id)+", ")
         group = ""
-        if  int(peer_id) == 1273072077:
+        if  1273072077 == peer_id:
             group = "Kawal FF-DIT"
-        elif  int(peer_id) == 1080681328:
+        elif  1080681328 == peer_id:
             group = "ROC - HD FF WOC REG5"
-        elif int(peer_id) == 1273072077:
+        elif 1273072077 == peer_id:
             group = "Kawal FF-DIT"
         else:
             group = ""
