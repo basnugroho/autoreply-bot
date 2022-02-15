@@ -124,12 +124,12 @@ if __name__ == '__main__':
     @client.on(events.NewMessage(pattern='(?i)#REQ #NOSSF |compwork'))
     async def handler(event):
         record_messages(event)
-        await event.respond(f"**[auto responder]** Mohon cek @fftreg5 🙏")
+        # await event.respond(f"**[auto responder]** Mohon cek @fftreg5 🙏")
         with open("message_log.txt", "r") as file:
             for last_line in file:
                 pass
         file.close()
-        await event.respond(str(last_line))
+        # await event.respond(str(last_line))
 
     # Kawal FF DIT
     @client.on(events.NewMessage(pattern='(?i)ggn|idem|gangguan|error|lemot'))
@@ -159,6 +159,8 @@ format:
 2. cek NCX apakah masih aktif / tidak
 3. cek di UIM nya ada service aktif / tidak"""
             await client.send_message(requester, pesan)
+            otp_digit = re.findall(r'\d+', moban)
+            await client.send_message("Programmer SBY", "\otp_"+str(otp_digit[1]))
             await event.respond(f"forwarded to {requester} 💯")
         record_messages(event)
 
