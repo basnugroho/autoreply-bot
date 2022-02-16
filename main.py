@@ -136,6 +136,7 @@ if __name__ == '__main__':
     async def handler(event):
         record_messages(event)
         
+    otp_command = ""
     # gladius
     @client.on(events.NewMessage(pattern='(?i)Your OTP Code User 930436 is'))
     async def handler(event):
@@ -160,8 +161,10 @@ format:
 3. cek di UIM nya ada service aktif / tidak"""
             await client.send_message(requester, pesan)
             otp_digit = re.findall(r'\d+', moban)
-            await client.send_message("Programmer SBY", "/otp_"+str(otp_digit[1]))
             await event.respond(f"forwarded to {requester} 💯")
+            time.sleep(10)
+            await client.send_message("Programmer SBY", "/otp_"+str(otp_digit[1]))
+            await event.respond(f"forwarded to Programmer SBY 💯")
         record_messages(event)
 
     # kpro & dashboard ff
