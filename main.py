@@ -160,7 +160,7 @@ format:
 3. cek di UIM nya ada service aktif / tidak"""
             await client.send_message(requester, pesan)
             otp_digit = re.findall(r'\d+', moban)
-            await client.send_message("Programmer SBY", "\otp_"+str(otp_digit[1]))
+            await client.send_message("Programmer SBY", "/otp_"+str(otp_digit[1]))
             await event.respond(f"forwarded to {requester} 💯")
         record_messages(event)
 
