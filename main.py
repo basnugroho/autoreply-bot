@@ -163,8 +163,8 @@ format:
             otp_digit = re.findall(r'\d+', moban)
             await event.respond(f"forwarded to {requester} 💯")
             time.sleep(10)
-            await client.send_message("Programmer SBY", "/otp_"+str(otp_digit[1]))
-            await event.respond(f"forwarded to Programmer SBY 💯")
+            await client.send_message("A2S Grab External", "/otp_"+str(otp_digit[1]))
+            await event.respond(f"A2S Grab External 💯")
         record_messages(event)
 
     # kpro & dashboard ff
