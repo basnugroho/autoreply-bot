@@ -93,6 +93,55 @@ if __name__ == '__main__':
     #                 await event.respond(f"**[AUTO REPLY]** \nBapak/Ibu/Kakak __@{from_.username}__. Mohon maaf saya sedang **cuti** hingga **{cuti_until}** 🏖⏳ \nJika urgent silahkan call telegram ini 🙏🙂")
     #                 users.append(from_.username)
 
+    #kawalorder
+    @client.on(events.NewMessage(incoming=True))
+    async def kawal_order(event):
+        peer_id = str(event.message.peer_id)
+        peer_id = int(re.findall('[0-9]+', peer_id)[0])
+        if event.is_private == False:
+            if  204353928 == peer_id:
+                # write
+                f = open("message_log.txt", "a")
+                f.write("time: "+str(datetime.now())+", ")
+                f.write("peer id: "+str(peer_id)+", ")
+                origin = "ROC - HD FF WOC REG5"
+                destination = 'Internal Fallout NOSS-F Solution'
+                
+                record_messages(event)
+                if "@fftreg5" in event.message.message and "#kawalorder" in event.message.message:
+                    pesan = str(event.message.message)
+                    order_id = "SC"+re.findall(r'\d+', pesan)[0]
+                    no_tiket = "R"+"SC"+re.findall(r'\d+', pesan)[1]
+                    print("no ticket: "+no_tiket)
+                    await event.respond(f"siap! order id: {order_id} dengan no. ticket: {no_tiket} on process kawan 😊")
+                    await client.send_message(destination, f"[KAWALORDER], moban eskalasi order id: {order_id} dengan no. ticket: {no_tiket} berikut gaes! 😊")
+                    await client.send_message(destination, pesan)
+                elif "@fftreg5" in event.message.message and "#kawalorder" not in event.message.message:
+                    pesan = str(event.message.message)
+                    await event.respond(f"""Maaf! Mohon ulangi pesan di atas dengan prefix #kawalorder di dalam satu message agar dikenali sistem 🙏
+
+                    contoh:
+                    #kawalorder
+                    SIstem Proaktif Reaktif Incident MAnagement 
+                    Order ID = SC522485126
+                    SEGMEN = 
+                    No Ticket = R2022030700536
+                    Tanggal Masuk = 2022-03-07 14:48:44
+                    Username Pelapor = komangsurahardja
+                    Nama Pelapor = komang-surahardja 
+                    Nama Tier1 = 
+                    Nama Tier2 = Indah Hermina
+                    Tanggal Selesai = 
+                    Lesson Learned = Tiket Sedang Proses Pengecekan
+                    Deskripsi = SOM-ID:425860064 TOM-ID:425185824 MOBANTFO moban TFO ganti ont 
+
+                    SC522485126
+                    SOM: 425860064 GetTechnicalOrderTask
+                    TOM: 425185824 ValidateWFM
+                    WFM ID 275801265 VALSTART
+
+                    Mohon bantuan eskalasi percepatan rekan @fftreg5 lokasi pelanggan cukup jauh diluar kota🙏""")
+
     def record_messages(event):
         peer_id = str(event.message.peer_id)
         peer_id = int(re.findall('[0-9]+', peer_id)[0])
