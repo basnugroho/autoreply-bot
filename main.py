@@ -268,9 +268,9 @@ format:
     async def handler(event):
         peer_id = str(event.message.peer_id)
         peer_id = int(re.findall('[0-9]+', peer_id)[0])
-        if event.is_private and peer_id==1124477729:  # only auto-reply to private chats
+        if event.is_private and peer_id==1119359055:  # only auto-reply to private chats
             print(str(datetime.now())+": telkomcare OTP request")
-            requester = 'A2S Grab External'
+            requester = "A2S Grab External"
             moban = str(event.message.message)
             message_splitted = moban.split('\n')
             message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
