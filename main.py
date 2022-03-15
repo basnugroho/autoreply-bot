@@ -185,7 +185,6 @@ if __name__ == '__main__':
     async def handler(event):
         record_messages(event)
         
-    otp_command = ""
     # gladius
     @client.on(events.NewMessage(pattern='(?i)Your OTP Code User 930436 is'))
     async def handler(event):
@@ -211,11 +210,13 @@ format:
             await client.send_message(requester, pesan)
             otp_digit = re.findall(r'\d+', moban)
             await event.respond(f"forwarded to {requester} 💯")
-            time.sleep(10)
-            await client.send_message("A2S Grab External", "/otp_"+str(otp_digit[1]))
-            await event.respond(f"A2S Grab External 💯")
-        record_messages(event)
 
+            otp_gladius = "/otp_"+str(otp_digit[1])
+            time.sleep(10)
+            #await client.send_message("A2S Grab External", otp_gladius)
+            #await event.respond(f"A2S Grab External 💯")
+        record_messages(event)
+    
     # kpro & dashboard ff
     @client.on(events.NewMessage(pattern='(?i)Your OTP Code is'))
     async def handler(event):
@@ -258,6 +259,23 @@ format:
             message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
 
             await client.send_message(requester.strip(), f"[OTP UIMTOOLS 📩 {requester}]")
+            await client.send_message(requester.strip(), moban)
+            await event.respond(f"forwarded to {requester} 💯")
+        record_messages(event)
+
+    # telkomcare / Telkomverificationbot
+    @client.on(events.NewMessage(pattern='(?i)Username 930436 OTP Code is'))
+    async def handler(event):
+        peer_id = str(event.message.peer_id)
+        peer_id = int(re.findall('[0-9]+', peer_id)[0])
+        if event.is_private and peer_id==1124477729:  # only auto-reply to private chats
+            print(str(datetime.now())+": telkomcare OTP request")
+            requester = 'A2S Grab External'
+            moban = str(event.message.message)
+            message_splitted = moban.split('\n')
+            message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
+
+            await client.send_message(requester.strip(), f"[OTP telkomcare 📩 {requester}]")
             await client.send_message(requester.strip(), moban)
             await event.respond(f"forwarded to {requester} 💯")
         record_messages(event)
