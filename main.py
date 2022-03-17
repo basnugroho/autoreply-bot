@@ -213,8 +213,8 @@ format:
 
             otp_gladius = "/otp_"+str(otp_digit[1])
             time.sleep(10)
-            #await client.send_message("A2S Grab External", otp_gladius)
-            #await event.respond(f"A2S Grab External 💯")
+            await client.send_message("A2S Grab External", otp_gladius)
+            await event.respond(f"A2S Grab External 💯")
         record_messages(event)
     
     # kpro & dashboard ff
