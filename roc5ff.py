@@ -22,7 +22,7 @@ with open("session.txt", "r") as file:
     for last_line in file:
         pass
 print("session name: "+first_line)
-session_file = first_line #use your username if unsure
+session_file = "ffroc5" #use your username if unsure
 
 with TelegramClient(session_file, api_id, api_hash) as client:
     result = client(functions.account.ResetAuthorizationRequest(hash=-12398745604826))
