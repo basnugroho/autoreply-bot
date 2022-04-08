@@ -8,7 +8,6 @@ from telethon.sync import TelegramClient
 from telethon import functions, types
 from datetime import datetime
 
-
 # sample API_ID from https://github.com/telegramdesktop/tdesktop/blob/f98fdeab3fb2ba6f55daf8481595f879729d1b84/Telegram/SourceFiles/config.h#L220
 # or use your own
 api_id = 18595913
@@ -34,15 +33,6 @@ if __name__ == '__main__':
     client = TelegramClient(session_file, api_id, api_hash, sequential_updates=True)
     client.connect()
 
-    cuti = True
-    cuti_from = "2021-12-7"
-    cuti_until = "2021-12-8"
-
-    users = []
-    known_users = ['']
-    rochdff_df = pd.read_excel('./ROC HD FF.xlsx')
-    cuti = False
-
     # forward kawalorder
     @client.on(events.NewMessage(incoming=True))
     async def kawal_order(event):
@@ -51,7 +41,7 @@ if __name__ == '__main__':
         if event.is_private == False:
             if  204353928 == peer_id:
                 # write
-                f = open("message_log.txt", "a")
+                f = open("ff_message_log.txt", "a")
                 f.write("time: "+str(datetime.now())+", ")
                 f.write("peer id: "+str(peer_id)+", ")
                 origin = "ROC - HD FF WOC REG5"
