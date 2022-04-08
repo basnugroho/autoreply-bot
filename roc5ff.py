@@ -55,7 +55,7 @@ if __name__ == '__main__':
                 f.write("time: "+str(datetime.now())+", ")
                 f.write("peer id: "+str(peer_id)+", ")
                 origin = "ROC - HD FF WOC REG5"
-                destination = 'Internal Fallout NOSS-F Solution'
+                destination = "Internal Fallout NOSS-F Solution"
                 
                 record_messages(event)
                 if "@fftreg5" in event.message.message and "#kawalorder" in event.message.message:
@@ -65,9 +65,9 @@ if __name__ == '__main__':
                     print("no ticket: "+no_tiket)
                     await event.respond(f"siap! order id: {order_id} dengan no. ticket: {no_tiket} on process kawan 😊")
                     await client.send_message(destination, f"[KAWALORDER], moban eskalasi order id: {order_id} dengan no. ticket: {no_tiket} berikut gaes! 😊")
-                    await client.send_message(destination, pesan)
+                    await client.send_message(destination, pesan);print(pesan)
                 elif "@fftreg5" in event.message.message and "#kawalorder" not in event.message.message:
-                    pesan = str(event.message.message)
+                    pesan = str(event.message.message);print(pesan)
                     await event.respond(f"""Maaf! Mohon ulangi pesan di atas dengan prefix #kawalorder di dalam satu message agar dikenali sistem 🙏
 
                     contoh:

