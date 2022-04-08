@@ -4652,3 +4652,13 @@ time: 2022-04-08 14:20:11.207115, peer id: 204353928, group: , message: Rekans S
 
 SC523204032 ~~~~  ValidateWFM
 GPON11-D5-TNS-5, event_message: Message(id=4753, peer_id=PeerChat(chat_id=204353928), date=datetime.datetime(2022, 4, 8, 7, 20, 10, tzinfo=datetime.timezone.utc), message='Rekans SBU  @irfancatfish , mohon bantuan untuk progress FO AS < 3 hari . Trima kasih\n\nSC523204032 ~~~~  ValidateWFM\nGPON11-D5-TNS-5', out=False, mentioned=False, media_unread=False, silent=False, post=None, from_scheduled=None, legacy=None, edit_hide=None, pinned=None, from_id=PeerUser(user_id=159835504), fwd_from=None, via_bot_id=None, reply_to=None, media=None, reply_markup=None, entities=[MessageEntityMention(offset=12, length=13)], views=None, forwards=None, replies=None, edit_date=None, post_author=None, grouped_id=None, restriction_reason=[], ttl_period=None)
+time: 2022-04-08 14:51:24.421072, peer id: 204353928, group: , message: #kawalorder 
+
+/moban #PASURUAN #SC523230357 #SOM-ID:432052404 #TOM-ID:432061840 #PUSH SOM COMPLETED
+
+SC523230357  
+SOM 432052404  In Progress  GetTechnicalOrderTask  
+TOM 432061840  Completed    
+WFM ID 280360094 COMPWORK  
+
+moban dorong SOM completed @fftreg5, event_message: Message(id=4754, peer_id=PeerChat(chat_id=204353928), date=datetime.datetime(2022, 4, 8, 7, 51, 24, tzinfo=datetime.timezone.utc), message='#kawalorder \n\n/moban #PASURUAN #SC523230357 #SOM-ID:432052404 #TOM-ID:432061840 #PUSH SOM COMPLETED\n\nSC523230357  \nSOM 432052404  In Progress  GetTechnicalOrderTask  \nTOM 432061840  Completed    \nWFM ID 280360094 COMPWORK  \n\nmoban dorong SOM completed @fftreg5', out=False, mentioned=True, media_unread=True, silent=False, post=None, from_scheduled=None, legacy=None, edit_hide=None, pinned=None, from_id=PeerUser(user_id=78366794), fwd_from=None, via_bot_id=None, reply_to=None, media=None, reply_markup=None, entities=[MessageEntityHashtag(offset=0, length=11), MessageEntityBotCommand(offset=14, length=6), MessageEntityHashtag(offset=21, length=9), MessageEntityHashtag(offset=31, length=12), MessageEntityHashtag(offset=44, length=4), MessageEntityPhone(offset=52, length=9), MessageEntityHashtag(offset=62, length=4), MessageEntityPhone(offset=70, length=9), MessageEntityHashtag(offset=80, length=5), MessageEntityPhone(offset=119, length=9), MessageEntityPhone(offset=171, length=9), MessageEntityPhone(offset=203, length=9), MessageEntityMention(offset=252, length=8)], views=None, forwards=None, replies=None, edit_date=None, post_author=None, grouped_id=None, restriction_reason=[], ttl_period=None)
