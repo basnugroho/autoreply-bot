@@ -120,14 +120,12 @@ format:
         peer_id = int(re.findall('[0-9]+', peer_id)[0])
         if event.is_private and peer_id==1298139737:  # only auto-reply to private chats
             print(str(datetime.now())+": KPRO OTP request")
-            requester = 'Internal Fallout NOSS-F Solution'
-            moban = str(event.message.message)
-            message_splitted = moban.split('\n')
-            message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
-
-            await client.send_message(requester, f"[OTP KPRO 📩 {requester}]")
-            await client.send_message(requester, moban)
-            await event.respond(f"forwarded to {requester} 💯")
+            destinations = ['Internal Fallout NOSS-F Solution', "A2S Grab External"]
+            for dest in destinations:
+                mess = str(event.message.message)
+                await client.send_message(dest, f"[OTP KPRO 📩 {requester}]")
+                await client.send_message(dest, mess)
+                await event.respond(f"forwarded to {dest} 💯")
         else:  # only auto-reply to private chats
             print(str(datetime.now())+": Dashboard FF OTP request")
             print(peer_id)
@@ -136,9 +134,7 @@ format:
             moban = str(event.message.message)
             message_splitted = moban.split('\n')
             message_splitted = [re.sub(r'\s+', ' ', message) for message in message_splitted]
-
             await client.send_message(requester, f"[OTP Dashboard FF 📩 {requester}]")
-            await client.send_message(requester, moban);await client.send_message("A2S Grab External", moban)
             await event.respond(f"forwarded to {requester} 💯")
         record_messages(event)
 
